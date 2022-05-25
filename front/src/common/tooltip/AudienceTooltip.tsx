@@ -67,5 +67,3 @@ const Stats = styled.div`
   padding-top: 5px;
   margin-top: 10px;
 `;
-
-const Results = styled.div``;

@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 import { Bandwidth } from "./bandwidth";
 import { Audience } from "./concurrent-viewers";
+import { Brush } from "./brush";
 import { useBandiwdth, useAudience } from "../../common/hooks";
 
 export const Charts: React.FC = () => {
@@ -28,6 +29,7 @@ export const Charts: React.FC = () => {
     <ChartsWrapper>
       <Bandwidth bandwidth={currentBandwidth} />
       <Audience audience={currentAudience} />
+      <Brush brush={currentAudience} />
     </ChartsWrapper>
   );
 };
