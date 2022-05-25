@@ -20,6 +20,7 @@ export const AudienceChart: React.FC<AudienceChartProps> = ({
         "axes",
         "areas",
         "crosshair",
+        "lines",
         "slices",
         "mesh",
         "legends",
@@ -47,45 +48,19 @@ export const AudienceChart: React.FC<AudienceChartProps> = ({
         tickValues: "every 1 days",
         legendOffset: -12,
       }}
+      colors={{ scheme: 'nivo' }}
       curve={"cardinal"}
       enablePoints={false}
-      enableArea={false}
-      areaOpacity={0.8}
       lineWidth={2}
       useMesh={true}
       enableSlices={"x"}
-      sliceTooltip={(sliceData) => (
+      /*sliceTooltip={(sliceData) => (
         <AudienceTooltip
           maxAudience={maxAudience}
           sliceData={sliceData}
         />
-      )}
-      legends={[
-        {
-          anchor: "bottom-right",
-          direction: "row",
-          justify: false,
-          translateX: -160,
-          translateY: 50,
-          itemsSpacing: 0,
-          itemDirection: "left-to-right",
-          itemWidth: 80,
-          itemHeight: 20,
-          itemOpacity: 0.75,
-          symbolSize: 12,
-          symbolShape: "circle",
-          symbolBorderColor: "rgba(0, 0, 0, .5)",
-          effects: [
-            {
-              on: "hover",
-              style: {
-                itemBackground: "rgba(0, 0, 0, .03)",
-                itemOpacity: 1,
-              },
-            },
-          ],
-        },
-      ]}
+      )}*/
+      legends={[]}
     />
   ) : null;
 };
