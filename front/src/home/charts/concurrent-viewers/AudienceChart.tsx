@@ -54,12 +54,12 @@ export const AudienceChart: React.FC<AudienceChartProps> = ({
       lineWidth={2}
       useMesh={true}
       enableSlices={"x"}
-      /*sliceTooltip={(sliceData) => (
+      sliceTooltip={(sliceData) => (
         <AudienceTooltip
           maxAudience={maxAudience}
           sliceData={sliceData}
         />
-      )}*/
+      )}
       legends={[]}
     />
   ) : null;

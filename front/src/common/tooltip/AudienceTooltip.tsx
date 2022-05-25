@@ -13,17 +13,13 @@ export const AudienceTooltip: React.FC<AudienceTooltipProps> = ({
   sliceData,
   maxAudience,
 }) => {
-  const httpData = {
-    color: sliceData.slice.points[1].color,
-    value: round(Number(sliceData.slice.points[1].data.y)),
+  console.log(sliceData);
+  const audienceData = {
+    color: sliceData.slice.points[0].color,
+    value: Number(sliceData.slice.points[0].data.y),
   };
 
   maxAudience.color = "#7969ef";
-
-  const cumulated = round(
-    Number(sliceData.slice.points[0].data.y) +
-      Number(sliceData.slice.points[1].data.y)
-  );
 
   return (
     <ToolTipWrapper>
@@ -34,34 +30,15 @@ export const AudienceTooltip: React.FC<AudienceTooltipProps> = ({
       </Date>
       <Stats>
         <DataLine
-          label={"Http"}
-          color={httpData.color}
-          value={httpData.value}
-          unit={"Gbps"}
+          label={"Audience"}
+          color={audienceData.color}
+          value={audienceData.value}
+          unit={"users"}
         />
-        {maxAudience.data.length ? (
-          <DataLine
-            label={"Max http"}
-            color={maxAudience.color}
-            value={round(maxAudience.data[0].y as number)}
-            unit={"Gbps"}
-          />
-        ) : null}
       </Stats>
-      <Results>
-        <DataLine
-          label={"Total"}
-          color={"#00b76b"}
-          value={cumulated}
-          unit={"Gbps"}
-        />
-      </Results>
     </ToolTipWrapper>
   );
 };
-
-const round = (value: number) =>
-  Number((Math.round(Number(value)) / (10 * 1000 * 1000 * 1000)).toFixed(2));
 
 const ToolTipWrapper = styled.div`
   display: flex;
@@ -88,11 +65,7 @@ const Stats = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 5px;
-  padding-bottom: 10px;
   margin-top: 10px;
-  margin-bottom: 10px;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
 `;
 
 const Results = styled.div``;
