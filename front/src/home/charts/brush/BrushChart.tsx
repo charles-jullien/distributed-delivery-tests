@@ -10,6 +10,7 @@ export const BrushChart: React.FC<BrushChartProps> = ({
   data,
   maxBrush,
 }) => {
+
   return data.length ? (
     <ResponsiveLine
       data={data}
